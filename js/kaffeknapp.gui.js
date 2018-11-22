@@ -37,7 +37,9 @@ var GUI = function( $, _class ){
 
 		sayThanks: function() {
             //$('#showUp').effect('shake', shakeConfig)
-            self.showView('Thanks');
+			self.showView('Thanks');
+			self.setHours( 0 );
+			self.setMinutes( 0 );
             setTimeout(
                 self.showView,
                 2000,
