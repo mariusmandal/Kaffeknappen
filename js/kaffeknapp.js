@@ -32,6 +32,11 @@ $(document).ready(function(){
 			KaffeknappGUI.showView('Ready')
 		}
 	);
+	Kaffeknapp.on('stop',
+		() => {
+			KaffeknappGUI.showView('Ready');
+		}
+	);
 	Kaffeknapp.on('tick:minute', 
 		( minutes, hours ) => {
 			KaffeknappGUI.setMinutes( minutes );

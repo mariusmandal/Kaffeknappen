@@ -14,6 +14,7 @@ var Kaffeknapp = function( $, _EMITTER ) {
 		},
 		
 		stop: function() {
+			timer.stop();
 			self.emit('stop');
         },
         
@@ -31,7 +32,11 @@ var Kaffeknapp = function( $, _EMITTER ) {
 		},
 
 		tickHours: function() {
-			self.emit('tick:hour', [timer.getHours()] );
+			var hours = timer.getHours();
+			if( hours > 59 ) {
+				self.stop();
+			}
+			self.emit('tick:hour', [ hours ] );
 			self.showCorrectSmiley();
 			//console.info('Hour passed! Now at '+ timer.getHours() + ':' + timer.getMinutes() );
 		},
